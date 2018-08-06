@@ -1,0 +1,37 @@
+{% load static %}
+
+<html>
+    <head>
+          
+        <title>I DONT MIND</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">   
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> 
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Chela+One" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    </head>
+    <body>
+
+        <div class="page-header">
+                {% if user.is_authenticated %}
+                  <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                {% endif %}
+            <h1><a href='http://127.0.0.1:8000/'>I DONT MIND</a></h1>
+          
+        </div>
+        <button onclick="this.innerHTML=Date()">The time is?</button>
+
+        <p id="demo"></p>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
